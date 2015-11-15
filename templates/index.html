@@ -1,45 +1,47 @@
 <!doctype html>
 <head>
 	<title>Find a food cart!</title>
-
-	{# Needs to be moved to a seperate stylesheet #}
-	<style>
-		html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
-
-		#map_container{
-			height: 100%;
-		}
-
-		#map{
-			height: 100%;
-		}
-
-	</style>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/FoodTruckMap.css') }}" />
 </head>
 
 <body>
+
 	<div id="map_container"></div>
 
-	{# This should probably be move somewhere else #}
+	{# The templates should probably be moved somewhere else #}
 	<script type="text/template" id="map_template">
 	  	<div id="map"></div>
+	  	<input id="pac-input" class="controls" type="text" placeholder="Find food carts near address">
 	</script>
 
+	<script type="text/template" id="foodTruck_template">
+	  	<h2><%= name %></h2>
+	  	<p><%= description %></p>
+	  	<h3>Schedule</h3>
+	  	<ul>
+	  		<li>Sunday: <%= sunday %></li>
+	  		<li>Monday: <%= monday %></li>
+	  		<li>Tuesday: <%= tuesday %></li>
+	  		<li>Wednesday: <%= wednesday %></li>
+	  		<li>Thursday: <%= thursday %></li>
+	  		<li>Friday: <%= friday %></li>
+	  		<li>Saturday: <%= saturday %></li>
+	  	</ul>
+	</script>
+
+	{# 3rd party includes #}
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js"></script>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgxidfIZCSikCKPABnxzxC2bxO3-ssh8A&libraries=places"></script>
+
+    {# Our includes #}
     <script src="{{ url_for('static', filename='models/FoodTruck.js') }}"></script>
     <script src="{{ url_for('static', filename='views/FoodTruckView.js') }}"></script>
     <script src="{{ url_for('static', filename='views/MapView.js') }}"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgxidfIZCSikCKPABnxzxC2bxO3-ssh8A"></script>
-
 	<script type="text/javascript">
 		var map_view = new MapView();
 	</script>
+	
 </body>

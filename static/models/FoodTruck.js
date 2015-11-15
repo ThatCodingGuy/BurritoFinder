@@ -4,9 +4,7 @@
 var FoodTruck = Backbone.Model.extend({
 	//Basic pojo
 	initialize: function(options) {
-		var foodTruck = model.attributes;
-	  	this.position = {lat: foodTruck.latitude, lng: foodTruck.longitude};
-	  	this.name = foodTruck.name;
+	  	this.position = {lat: this.get("latitude"), lng: this.get("longitude")};
 	}
 });
 
