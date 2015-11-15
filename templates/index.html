@@ -2,6 +2,7 @@
 <head>
 	<title>Find a food cart!</title>
 
+	{# Needs to be moved to a seperate stylesheet #}
 	<style>
 		html, body {
 			height: 100%;
@@ -23,6 +24,7 @@
 <body>
 	<div id="map_container"></div>
 
+	{# This should probably be move somewhere else #}
 	<script type="text/template" id="map_template">
 	  	<div id="map"></div>
 	</script>
@@ -32,12 +34,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js"></script>
     
     <script src="{{ url_for('static', filename='models/FoodTruck.js') }}"></script>
+    <script src="{{ url_for('static', filename='views/FoodTruckView.js') }}"></script>
     <script src="{{ url_for('static', filename='views/MapView.js') }}"></script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgxidfIZCSikCKPABnxzxC2bxO3-ssh8A"></script>
 
 	<script type="text/javascript">
 		var map_view = new MapView();
-
 	</script>
 </body>
