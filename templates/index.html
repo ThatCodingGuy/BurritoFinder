@@ -1,0 +1,43 @@
+<!doctype html>
+<head>
+	<title>Find a food cart!</title>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+		#map_container{
+			height: 100%;
+		}
+
+		#map{
+			height: 100%;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div id="map_container"></div>
+
+	<script type="text/template" id="map_template">
+	  	<div id="map"></div>
+	</script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js"></script>
+    
+    <script src="{{ url_for('static', filename='models/FoodTruck.js') }}"></script>
+    <script src="{{ url_for('static', filename='views/MapView.js') }}"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgxidfIZCSikCKPABnxzxC2bxO3-ssh8A"></script>
+
+	<script type="text/javascript">
+		var map_view = new MapView();
+
+	</script>
+</body>
