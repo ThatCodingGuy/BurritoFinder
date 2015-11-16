@@ -19,7 +19,7 @@ var FoodTruckCollection = Backbone.Collection.extend({
 
 	//The URL to fetch the food trucks from
 	url: function () {
-		return '//trucks/' + this.longitude + '/' + this.latitude + '/' + this.radius
+		return 'trucks/' + this.longitude + '/' + this.latitude + '/' + this.radius
 	},
 
 	initialize: function(models, options) {
