@@ -38,5 +38,9 @@ var FoodTruckView = Backbone.View.extend({
 	  	});
     },
 
+    removeFromMap: function() {
+    	this.marker.setMap(null);
+    }
+
 });
 

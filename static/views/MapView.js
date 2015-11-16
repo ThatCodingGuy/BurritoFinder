@@ -44,7 +44,7 @@ var MapView = Backbone.View.extend({
 
     	//Clear the previous pins
     	self.pins.map(function(pin) {
-    		pin.map.setMap(null);
+    		pin.removeFromMap();
     	});
     	self.pins = []
 
