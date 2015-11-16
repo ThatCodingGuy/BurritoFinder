@@ -7,8 +7,6 @@ class ScheduleParseException(Exception):
 
 class SFOpenDataService():
 
-	
-
 	def __init__(self):
 		#We have the array twice in a row so we don't have to worry about module when iterating between 2 days
 		self.scheduledDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
