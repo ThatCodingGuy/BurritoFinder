@@ -1,8 +1,8 @@
 from flask import Flask, jsonify, render_template
 from werkzeug.routing import FloatConverter as BaseFloatConverter
 
-from FoodTruck import FoodTruckManager
-from SFOpenDataService import SFOpenDataService
+from models.FoodTruck import FoodTruckManager
+from models.SFOpenDataService import SFOpenDataService
 
 
 #We extend the float conversion to allow negative numbers and integers

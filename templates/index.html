@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-	<title>Find a food cart!</title>
+	<title>Find a food cart near you!</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/FoodTruckMap.css') }}" />
 </head>
 
@@ -41,7 +41,27 @@
     <script src="{{ url_for('static', filename='views/MapView.js') }}"></script>
 
 	<script type="text/javascript">
-		var map_view = new MapView();
+
+		//We set san fransisco as a sensible default if geolocation
+		//doesn't work
+		var lat = 37.775622; 
+        var lng = -122.418278;
+
+		var map_view = new MapView({el:'#map_container', lng: lng, lat:lat});
+
+
+
+		if(navigator.geolocation)
+        	navigator.geolocation.getCurrentPosition(handleGetCurrentPosition, handleGetCurrentPositionError);
+
+        function handleGetCurrentPosition(location) {
+        	map_view.move_center(location.coords.latitude, location.coords.longitude);
+        }
+
+        function handleGetCurrentPositionError(error) {
+        	//Do nothing. If an error occurs, they'll have to use the search baar
+        }
+
 	</script>
-	
+
 </body>

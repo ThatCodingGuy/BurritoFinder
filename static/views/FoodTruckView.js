@@ -2,15 +2,18 @@
 
 var FoodTruckView = Backbone.View.extend({
 	model: FoodTruck,
+
 	initialize:function(options){
 		this.foodTruck = options.foodTruck;
 		this.map = options.map;
 		this.infowindow = options.infowindow;
 
+		//The template here is what appears in the popup box
         this.template = _.template($('#foodTruck_template').html());
    },
 
     render: function(){
+
     	var self = this;
       	self.marker = new google.maps.Marker({
 		    position: {lat: self.foodTruck.get('latitude'), lng: self.foodTruck.get('longitude')},
@@ -18,7 +21,7 @@ var FoodTruckView = Backbone.View.extend({
 		    title: self.foodTruck.get("name")
 		});
 
-      	
+      	//When the marker is clicked, open the popup with more information
 	    google.maps.event.addListener(self.marker, 'click', function() {
 		    self.infowindow.setContent(self.template({
 		    	name: self.foodTruck.get("name"), 

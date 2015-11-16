@@ -1,4 +1,5 @@
 
+/* START CSS For full screen map */
 html, body {
 	height: 100%;
 	margin: 0;
@@ -12,7 +13,9 @@ html, body {
 #map{
 	height: 100%;
 }
+/* END CSS For full screen map */
 
+/* START CSS For input box */
 .controls {
 	margin-top: 10px;
 	border: 1px solid transparent;
@@ -42,4 +45,4 @@ html, body {
 .pac-container {
 	font-family: Roboto;
 }
-
+/* END CSS For input box */
