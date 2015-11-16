@@ -9,7 +9,7 @@ class SFOpenDataService():
 
 	def __init__(self):
 		#We have the array twice in a row so we don't have to worry about module when iterating between 2 days
-		self.scheduledDays = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
+		self.dayTokens = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]
 
 		self.api_endpoint = "https://data.sfgov.org/resource/rqzj-sfat.json"
 
@@ -84,7 +84,7 @@ class SFOpenDataService():
 					workingDays[added] = time
 
 		schedule = []
-		for day in self.scheduledDays:
+		for day in self.dayTokens:
 			if day in workingDays:
 				schedule.append(workingDays[day])
 			else:
@@ -111,17 +111,17 @@ class SFOpenDataService():
 			startDay = dayRange[0]
 			endDay = dayRange[1]
 
-			if startDay not in self.scheduledDays:
+			if startDay not in self.dayTokens:
 				raise ScheduleParseException("Start day is not a recognized day identifier")
 
-			if endDay not in self.scheduledDays:
+			if endDay not in self.dayTokens:
 				raise ScheduleParseException("End day is not a recognized day identifier")
 
 			daysToAdd = []
 			adding = False
 
 			#Here we add the scheduled days together to not have to use modulo operations
-			for scheduledDay in self.scheduledDays+self.scheduledDays:
+			for scheduledDay in self.dayTokens+self.dayTokens:
 
 				if scheduledDay==startDay:
 					daysToAdd.append(scheduledDay)
@@ -137,7 +137,7 @@ class SFOpenDataService():
 			days = daysToAdd
 		else:
 			#Only add this day
-			if day not in self.scheduledDays:
+			if day not in self.dayTokens:
 				raise ScheduleParseException("Day is not a recognized day identifier")
 
 			days = [day]
