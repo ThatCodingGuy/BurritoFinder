@@ -2,6 +2,7 @@
 
 This app offers a way to find food trucks near you on the map. It gets the information from https://data.sfgov.org/resource/rqzj-sfat.json, does some parsing on it, and offers it up on a RESTful API. This app also consumes that API with a single page app that makes heavy use of google maps.
 
+To see it hosted : http://limitless-spire-1938.herokuapp.com
 
 #Installation
 To install, clone the repo.
