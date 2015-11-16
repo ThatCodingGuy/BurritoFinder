@@ -4,6 +4,13 @@ This app offers a way to find food trucks near you on the map. It gets the infor
 
 To see it hosted : http://limitless-spire-1938.herokuapp.com
 
+#API Usage
+
+There are 2 RESTful routes that are offered.
+
+/trucks/ -> returns a list of all the food trucks that our service has access to
+/trucks/<longitude>/<latitude>/<radius> -> return a list of all food trucks within radius KM of longitude/lattitude.
+
 #Installation
 To install, clone the repo.
 Then, set up a virtualenv using requirements.txt and python3.5
