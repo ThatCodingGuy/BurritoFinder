@@ -38,7 +38,11 @@ class SFOpenDataService():
 				#If it's not, we skip this entry
 				continue
 
-			weeklySchedule = self.parseSchedule(dayshours)
+			try:
+				weeklySchedule = self.parseSchedule(dayshours)
+			except ScheduleParseException:
+				#We'll ignore parse exceptions, skipping unclean entries
+				continue
 
 			foodTruck = FoodTruck(name=name, description=description, longitude=float(longitude), latitude=float(latitude), weeklySchedule=weeklySchedule)
 			foodTrucks.append(foodTruck)
