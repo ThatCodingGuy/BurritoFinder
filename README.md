@@ -8,8 +8,8 @@ To see it hosted : http://limitless-spire-1938.herokuapp.com
 
 There are 2 RESTful routes that are offered.
 
-/trucks/ -> returns a list of all the food trucks that our service has access to
-/trucks/<longitude>/<latitude>/<radius> -> return a list of all food trucks within radius KM of longitude/lattitude.
+1. /trucks/ -> returns a list of all the food trucks that our service has access to
+2. /trucks/\<longitude\>/\<latitude\>/\<radius\>/ -> return a list of all food trucks within radius KM of longitude/lattitude.
 
 #Installation
 To install, clone the repo.
